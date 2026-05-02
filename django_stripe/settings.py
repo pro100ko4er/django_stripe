@@ -34,9 +34,9 @@ CANCEL_URL=env("CANCEL_URL")
 PROXY = env("PROXY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['django-stripe-628ds7z5m-pro100ko4ers-projects.vercel.app']
+ALLOWED_HOSTS = ['django-stripe-628ds7z5m-pro100ko4ers-projects.vercel.app', 'django-stripe.vercel.app']
 
 
 # Application definition
