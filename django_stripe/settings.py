@@ -36,7 +36,13 @@ PROXY = env("PROXY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['django-stripe-628ds7z5m-pro100ko4ers-projects.vercel.app', 'django-stripe.vercel.app']
+ALLOWED_HOSTS = [
+                 'django-stripe-628ds7z5m-pro100ko4ers-projects.vercel.app', 
+                 'django-stripe.vercel.app',
+                 '.vercel.app',
+                 'localhost',
+                 '127.0.0.1',
+                ]
 
 
 # Application definition
