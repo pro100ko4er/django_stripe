@@ -1,0 +1,30 @@
+<html>
+  <head>
+    <title>Buy {{item.name}}</title>
+  </head>
+  <body>
+    <h1>{{item.name}}</h1>
+    <p>{{item.description}}</p>
+    <p>{{item.price}}</p>
+    <input class="hidden" type="hidden" value="{{stripe_api_key}}"/>
+    <button id="buy-button">Buy</button>
+    <p style="color: red;" class="error"></p>
+    <p class="loader"></p>
+    <script src="https://js.stripe.com/dahlia/stripe.js" aria-errormessage="Don't loaded!"></script>
+    <script type="text/javascript">
+      var stripeApiKey = document.querySelector('.hidden').value
+      var stripe = Stripe(stripeApiKey);
+      var buyButton = document.getElementById('buy-button');
+      var errorBlock = document.querySelector('.error')
+      var loaderBlock = document.querySelector('.loader')
+      buyButton.addEventListener('click', function() {
+        loaderBlock.textContent = "Loading..."
+        fetch('/buy/1', {method: 'GET'})
+        .then(response => response.json())
+        .then(session => window.location.href = session.url)
+        .catch(error => errorBlock.textContent = error.message)
+        .finally(() => loaderBlock.textContent = "")
+      });
+    </script>
+  </body>
+</html>
