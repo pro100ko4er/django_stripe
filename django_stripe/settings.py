@@ -36,7 +36,7 @@ PROXY = env("PROXY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-stripe-628ds7z5m-pro100ko4ers-projects.vercel.app']
 
 
 # Application definition
