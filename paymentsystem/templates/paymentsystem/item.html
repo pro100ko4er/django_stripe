@@ -7,6 +7,7 @@
     <p>{{item.description}}</p>
     <p>{{item.price}}</p>
     <input class="hidden" type="hidden" value="{{stripe_api_key}}"/>
+    <input class="hidden-id" type="hidden" value="{{item.id}}" />
     <button id="buy-button">Buy</button>
     <p style="color: red;" class="error"></p>
     <p class="loader"></p>
@@ -17,9 +18,10 @@
       var buyButton = document.getElementById('buy-button');
       var errorBlock = document.querySelector('.error')
       var loaderBlock = document.querySelector('.loader')
+      var id = document.querySelector('.hidden-id').value
       buyButton.addEventListener('click', function() {
         loaderBlock.textContent = "Loading..."
-        fetch('/buy/1', {method: 'GET'})
+        fetch(`/buy/${id}`, {method: 'GET'})
         .then(response => response.json())
         .then(session => window.location.href = session.url)
         .catch(error => errorBlock.textContent = error.message)
