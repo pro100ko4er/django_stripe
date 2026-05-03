@@ -28,7 +28,7 @@ def buy_order(request: HttpRequest, id):
     except Order.DoesNotExist:
         raise Http404("Order does not exists")
     except Exception as error:
-        return HttpResponse(repr(error))
+        return HttpResponse(str(error))
 
 
 def buy(request: HttpRequest, id):
@@ -39,7 +39,7 @@ def buy(request: HttpRequest, id):
     except Item.DoesNotExist:
         raise Http404("Item does not exists!")
     except Exception as error:
-        return HttpResponse(repr(error))
+        return HttpResponse(str(error))
     
 
 def success(request: HttpRequest):
